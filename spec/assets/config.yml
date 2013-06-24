@@ -1,0 +1,10 @@
+credentials:
+  username: config-username
+  token: config-token
+
+callback_url: http://example.com/callback
+
+repositories:
+  - username/repository
+  - username/other-repository
+  - other-username/repository
