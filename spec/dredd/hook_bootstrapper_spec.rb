@@ -1,8 +1,8 @@
 require 'hashie/mash'
 
-require 'hook_bootstrapper'
+require 'dredd/hook_bootstrapper'
 
-describe HookBootstrapper do
+describe Dredd::HookBootstrapper do
   let(:client) { double('GitHub Client') }
   let(:bootstrapper) { described_class.new(client, callback_url) }
 
