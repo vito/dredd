@@ -10,6 +10,8 @@ module Dredd
       create_hook(repository)
     end
 
+    private
+
     def create_hook(repository)
       @client.create_hook(
           repository, 'web',
