@@ -1,0 +1,7 @@
+---
+applications:
+- name: dredd
+  memory: 256M
+  instances: 1
+  url: dredd.cfapps.io
+  path: .
