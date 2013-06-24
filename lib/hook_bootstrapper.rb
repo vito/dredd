@@ -5,6 +5,11 @@ class HookBootstrapper
   end
 
   def bootstrap_repository(repository)
+    return if hook_already_created?(repository)
+    create_hook(repository)
+  end
+
+  def create_hook(repository)
     @client.create_hook(
         repository, 'web',
         {
@@ -16,5 +21,12 @@ class HookBootstrapper
             active: true
         }
     )
+  end
+
+  def hook_already_created?(repository)
+    @client.hooks(repository).any? do |hook|
+      hook_config = hook.config
+      hook_config.url == @callback_url
+    end
   end
 end
