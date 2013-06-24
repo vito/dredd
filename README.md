@@ -1,4 +1,10 @@
-cla-responder
-=============
+Dredd
+=====
 
-A GitHub Repo Hook listener that makes sure contributors have signed a CLA.
+*Contributor Licence Enforcer*
+
+![Dredd](media/dredd.jpg)
+
+***
+
+Photo Credit: [rutty](http://www.flickr.com/photos/rutty/498112451/)
