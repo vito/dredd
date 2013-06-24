@@ -13,3 +13,7 @@ group :development do
   gem 'rubocop'
   gem 'rake'
 end
+
+group :production do
+  gem 'thin'
+end
