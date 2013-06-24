@@ -1,5 +1,6 @@
 require 'hashie/mash'
 
+require 'spec_helper'
 require 'dredd/hook_bootstrapper'
 
 describe Dredd::HookBootstrapper do
