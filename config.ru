@@ -3,16 +3,21 @@ require 'octokit'
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'lib')
 require 'dredd'
 
-
+config = Dredd::Config.from_file('config/config.yml')
 TEMPLATE = <<-EOT
 Hey <%= username %>!
 
 Thanks for submitting this pull request!
 EOT
 
-config = Dredd::Config.from_file('config/config.example.yml')
 github_client = Octokit::Client.new(login: config.username,
-    token: config.token)
+    oauth_token: config.token)
+
+bootstrapper = Dredd::HookBootstrapper.new(github_client, config.callback_url)
+config.repositories.each do |repo|
+  bootstrapper.bootstrap_repository(repo)
+end
+
 commenter = Dredd::PullRequestCommenter.new(github_client, TEMPLATE)
 filterer = Dredd::UsernameFilterer.new(commenter, config.allowed_usernames)
 

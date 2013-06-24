@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 require 'rack/test'
 
 require 'dredd/app'
@@ -7,15 +9,34 @@ set :environment, :test
 describe Dredd::DreddApp do
   include Rack::Test::Methods
 
+  let(:commenter) { double('Commenter') }
+
   def app
-    described_class.new
+    described_class
+  end
+
+  before do
+    described_class.set :commenter, commenter
   end
 
   describe 'reporting its status' do
     it 'responds with "OK"' do
       get '/status'
-      last_response.should be_ok
-      last_response.body.should == 'OK'
+
+      expect(last_response).to be_ok
+      expect(last_response.body).to eq('OK')
+    end
+  end
+
+  describe 'receiving a pull request notification' do
+    let(:payload) { asset_contents('pull_request_opened.json') }
+
+    it 'tells the commenter to comment' do
+      commenter.should_receive(:comment).with('xoebus/dredd', 10, 'xoebus')
+
+      post '/', payload
+
+      expect(last_response).to be_ok
     end
   end
 end
