@@ -9,7 +9,7 @@
 
 ## About
 
-When submitting pull requests to a component of Cloud Foundry
+When submitting pull requests to a component of [Cloud Foundry](https://github.com/cloudfoundry)
 non-Pivotal employees are required to submit a CLA in order to have
 their code merged.
 
