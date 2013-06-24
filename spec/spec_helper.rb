@@ -1,3 +1,8 @@
+if ENV['TRAVIS']
+  require 'coveralls'
+  Coveralls.wear!
+end
+
 def asset(name)
   File.join(File.dirname(__FILE__), 'assets', name)
 end
