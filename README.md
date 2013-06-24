@@ -25,7 +25,7 @@ let the author know what they have to do.
    URL, users to not comment on, and repositories to watch) in that file
    to taste.
 3. Push the application to your favourite application hosting service.
-4. Rest easy knowing that Judge Dredd is figting your legal battles for
+4. Rest easy knowing that Judge Dredd is fighting your legal battles for
    you.
 
 ## License
