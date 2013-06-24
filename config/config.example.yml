@@ -1,0 +1,12 @@
+credentials:
+  username: github-username
+  token: github-token
+
+callback_url: http://example.com/callback_url
+
+allowed_usernames:
+  - username
+
+repositories:
+  - username/repository
+  - username/other-repository

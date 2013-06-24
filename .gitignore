@@ -19,3 +19,6 @@ doc/
 
 # IDE
 .idea/
+
+# Project Specific
+config/config.yml
