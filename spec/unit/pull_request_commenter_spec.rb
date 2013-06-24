@@ -11,13 +11,16 @@ describe Dredd::PullRequestCommenter do
 
   describe 'making a comment' do
     it 'makes a comment' do
-      client.should_receive(:add_comment).with(repository, pull_request_number, anything)
+      client.should_receive(:add_comment).with(repository,
+                                               pull_request_number,
+                                               anything)
       commenter.comment(repository, pull_request_number, username)
     end
 
     it 'populates a template' do
       client.should_receive(:add_comment).with(repository,
-          pull_request_number, 'hello seadowg')
+                                               pull_request_number,
+                                               'hello seadowg')
       commenter.comment(repository, pull_request_number, username)
     end
   end

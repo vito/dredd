@@ -4,10 +4,7 @@ describe Dredd::UsernameFilterer do
   let(:commenter) { double('Commenter') }
   let(:filterer) { described_class.new(commenter, username_list) }
 
-  let(:username_list) {
-    %w(xoebus seadowg)
-  }
-
+  let(:username_list) { %w(xoebus seadowg) }
   let(:repository) { 'xoebus/test-repo' }
   let(:pull_request_number) { 55 }
 
@@ -24,7 +21,8 @@ describe Dredd::UsernameFilterer do
     context 'when the user is not in the filter list' do
       it 'calls through' do
         commenter.should_receive(:comment).with(repository,
-            pull_request_number, 'tissarah')
+                                                pull_request_number,
+                                                'tissarah')
 
         filterer.comment(repository, pull_request_number, 'tissarah')
       end
