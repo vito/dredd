@@ -26,5 +26,9 @@ module Dredd
     def repositories
       @hash.fetch('repositories')
     end
+
+    def allowed_usernames
+      @hash.fetch('allowed_usernames')
+    end
   end
 end

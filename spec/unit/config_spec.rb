@@ -23,6 +23,10 @@ describe Dredd::Config do
                other-username/repository)
         )
       end
+
+      it 'allows you to read the list of allowed usernames' do
+        expect(config.allowed_usernames).to eq(%w(allowed-username))
+      end
     end
   end
 
